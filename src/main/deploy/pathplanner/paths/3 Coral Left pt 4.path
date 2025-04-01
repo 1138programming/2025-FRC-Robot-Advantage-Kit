@@ -1,0 +1,68 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.8294407894736837,
+        "y": 5.477878289473683
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.0261837204922584,
+        "y": 5.97080717201165
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Left pt 3.2 End"
+    },
+    {
+      "anchor": {
+        "x": 1.0391447368421052,
+        "y": 7.036595394736842
+      },
+      "prevControl": {
+        "x": 1.6837993421052633,
+        "y": 6.10328947368421
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Left Station"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.8007181328545777,
+      "maxWaypointRelativePos": 1.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 2.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 128.45370921670596
+  },
+  "reversed": false,
+  "folder": "3 Coral Left (Old)",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 118.50000000000001
+  },
+  "useDefaultConstraints": true
+}

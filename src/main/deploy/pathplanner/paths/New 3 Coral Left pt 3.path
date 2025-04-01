@@ -1,0 +1,101 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.0391447368421052,
+        "y": 7.036595394736842
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.3252086133274164,
+        "y": 6.500642467209399
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Left Station"
+    },
+    {
+      "anchor": {
+        "x": 3.5215460526315785,
+        "y": 6.016694078947369
+      },
+      "prevControl": {
+        "x": 3.3680355226601733,
+        "y": 6.284316165180778
+      },
+      "nextControl": {
+        "x": 4.056466518770328,
+        "y": 5.08414221332834
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.8294407894736837,
+        "y": 5.477878289473683
+      },
+      "prevControl": {
+        "x": 3.7065026180330403,
+        "y": 5.695562018775693
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Left pt 3.2 End"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 118.50000000000001
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 1.0,
+      "maxWaypointRelativePos": 2.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 1.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "LiftT4",
+      "waypointRelativePos": 1.0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "LiftT4"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 118.50000000000001
+  },
+  "reversed": false,
+  "folder": "3 Coral Left (New)",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 128.45370921670596
+  },
+  "useDefaultConstraints": true
+}

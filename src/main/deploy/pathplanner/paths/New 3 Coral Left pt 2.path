@@ -1,0 +1,138 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 5.061019736842105,
+        "y": 5.449013157894736
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.4453740529295995,
+        "y": 5.9210735016117075
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Left pt 1 End"
+    },
+    {
+      "anchor": {
+        "x": 1.5972039473673425,
+        "y": 6.31496710526145
+      },
+      "prevControl": {
+        "x": 1.8092051413816606,
+        "y": 6.10501583165459
+      },
+      "nextControl": {
+        "x": 1.301473495497878,
+        "y": 6.607838026592832
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.0391447368421052,
+        "y": 7.036595394736842
+      },
+      "prevControl": {
+        "x": 1.2265099653644915,
+        "y": 6.871083246721193
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Left Station"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 128.45
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 1.0,
+      "maxWaypointRelativePos": 2.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 1.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Stow",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": 0.3213644524236987,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "ArmStow"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "LiftStow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ArmIntakePos",
+      "waypointRelativePos": 0.5960502692998213,
+      "endWaypointRelativePos": 2.0,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "ArmIntakePos"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "CoralIn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 128.45370921670596
+  },
+  "reversed": false,
+  "folder": "3 Coral Left (New)",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 62.0
+  },
+  "useDefaultConstraints": true
+}

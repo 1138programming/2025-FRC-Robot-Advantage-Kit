@@ -1,0 +1,101 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.2604440789473683,
+        "y": 0.9268092105263156
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.3617291199920216,
+        "y": 1.7116145602672361
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Right Station"
+    },
+    {
+      "anchor": {
+        "x": 2.944243421052631,
+        "y": 2.0621710526315793
+      },
+      "prevControl": {
+        "x": 2.7696828524916985,
+        "y": 1.8785700762988946
+      },
+      "nextControl": {
+        "x": 3.1165032040644487,
+        "y": 2.2433520868396926
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.4734375,
+        "y": 2.8126644736842104
+      },
+      "prevControl": {
+        "x": 3.3189799883515243,
+        "y": 2.616086557591479
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -125.71
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.9999999999999999,
+      "maxWaypointRelativePos": 2.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 1.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "LiftT4",
+      "waypointRelativePos": 1.0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "LiftT4"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -125.70669140060286
+  },
+  "reversed": false,
+  "folder": "3 Coral Right",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -130.81508387488157
+  },
+  "useDefaultConstraints": true
+}

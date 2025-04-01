@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.646628289473684,
+        "y": 5.776151315789473
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.7808471625219737,
+        "y": 5.565235943856447
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Left pt 3.1 End"
+    },
+    {
+      "anchor": {
+        "x": 3.8294407894736837,
+        "y": 5.477878289473683
+      },
+      "prevControl": {
+        "x": 3.667955229107142,
+        "y": 5.668724860815963
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Left pt 3.2 End"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 1.0,
+    "maxAcceleration": 1.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.0,
+    "rotation": 118.50000000000001
+  },
+  "reversed": false,
+  "folder": "3 Coral Left (Old)",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 120.61860540890942
+  },
+  "useDefaultConstraints": false
+}

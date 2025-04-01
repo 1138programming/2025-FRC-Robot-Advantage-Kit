@@ -1,0 +1,75 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.8294407894736837,
+        "y": 2.620230263157895
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.166976631696832,
+        "y": 2.249362959778653
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Right pt 3 End"
+    },
+    {
+      "anchor": {
+        "x": 1.866611842105263,
+        "y": 1.6195723684210532
+      },
+      "prevControl": {
+        "x": 2.0531657826238305,
+        "y": 1.785998409883905
+      },
+      "nextControl": {
+        "x": 1.6800579015866959,
+        "y": 1.4531463269582015
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.2604440789473683,
+        "y": 0.9268092105263156
+      },
+      "prevControl": {
+        "x": 1.7850347287038089,
+        "y": 1.495740877116209
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Right Station"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -130.82
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -130.81508387488157
+  },
+  "reversed": false,
+  "folder": "3 Coral Right",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -117.55281157671777
+  },
+  "useDefaultConstraints": true
+}

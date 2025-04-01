@@ -1,0 +1,125 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 5.061019736842105,
+        "y": 2.5528782894736843
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.4475680356485094,
+        "y": 1.9530236492770525
+      },
+      "isLocked": false,
+      "linkedName": "3 Coral Right pt 1 End"
+    },
+    {
+      "anchor": {
+        "x": 1.8858552631578944,
+        "y": 1.6580592105263157
+      },
+      "prevControl": {
+        "x": 2.1838659553438697,
+        "y": 1.9788361902020473
+      },
+      "nextControl": {
+        "x": 0.8573023690359645,
+        "y": 0.5509308441143257
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.2604440789473683,
+        "y": 0.9268092105263156
+      },
+      "prevControl": {
+        "x": 1.4583969913952484,
+        "y": 1.0795005477180566
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "3 Coral Right Station"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -130.82
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 1.3626760563380305,
+      "maxWaypointRelativePos": 2.0,
+      "constraints": {
+        "maxVelocity": 4.65,
+        "maxAcceleration": 1.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Stow",
+      "waypointRelativePos": 0.0,
+      "endWaypointRelativePos": 0.2800718132854568,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "LiftStow"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "ArmStow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ArmIntakePos",
+      "waypointRelativePos": 1.0017953321364437,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "ArmIntakePos"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.65,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -130.81508387488157
+  },
+  "reversed": false,
+  "folder": "3 Coral Right",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -62.48799737614858
+  },
+  "useDefaultConstraints": true
+}
