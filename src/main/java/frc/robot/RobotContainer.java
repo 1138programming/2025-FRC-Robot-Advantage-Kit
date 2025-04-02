@@ -16,6 +16,7 @@ package frc.robot;
 import static frc.robot.Constants.ArmConstants.*;
 import static frc.robot.Constants.ArmConstants.ArmPositionConstants.*;
 import static frc.robot.Constants.CoralIntakeConstants.*;
+import static frc.robot.Constants.FieldConstants.*;
 import static frc.robot.Constants.LiftConstants.*;
 import static frc.robot.Constants.LiftConstants.LiftPositionConstants.*;
 import static frc.robot.Constants.OperatorConstants.*;
@@ -26,6 +27,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -305,48 +307,48 @@ public class RobotContainer {
     baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
 
     // SmartDashboard.putData("Swerve Drive", new Sendable() {
-    //     @Override
-    //     public void initSendable(SendableBuilder builder) {
-    //         builder.setSmartDashboardType("SwerveDrive");
+    // @Override
+    // public void initSendable(SendableBuilder builder) {
+    // builder.setSmartDashboardType("SwerveDrive");
 
-    //         // Swerve 1
-    //         builder.addDoubleProperty("Front Left Angle",
-    //                 () -> Swerve.get().getModule(0).getCurrentState().angle.getDegrees(),
-    //                 null);
-    //         builder.addDoubleProperty("Front Left Velocity",
-    //                 () -> Swerve.get().getModule(0).getCurrentState().speedMetersPerSecond,
-    //                 null);
+    // // Swerve 1
+    // builder.addDoubleProperty("Front Left Angle",
+    // () -> Swerve.get().getModule(0).getCurrentState().angle.getDegrees(),
+    // null);
+    // builder.addDoubleProperty("Front Left Velocity",
+    // () -> Swerve.get().getModule(0).getCurrentState().speedMetersPerSecond,
+    // null);
 
-    //         // Swerve 2
-    //         builder.addDoubleProperty("Front Right Angle",
-    //                 () -> Swerve.get().getModule(1).getCurrentState().angle.getDegrees(),
-    //                 null);
-    //         builder.addDoubleProperty("Front Right Velocity",
-    //                 () -> Swerve.get().getModule(1).getCurrentState().speedMetersPerSecond,
-    //                 null);
+    // // Swerve 2
+    // builder.addDoubleProperty("Front Right Angle",
+    // () -> Swerve.get().getModule(1).getCurrentState().angle.getDegrees(),
+    // null);
+    // builder.addDoubleProperty("Front Right Velocity",
+    // () -> Swerve.get().getModule(1).getCurrentState().speedMetersPerSecond,
+    // null);
 
-    //         // Swerve 3
-    //         builder.addDoubleProperty("Back Left Angle",
-    //                 () -> Swerve.get().getModule(2).getCurrentState().angle.getDegrees(),
-    //                 null);
-    //         builder.addDoubleProperty("Back Left Velocity",
-    //                 () -> Swerve.get().getModule(2).getCurrentState().speedMetersPerSecond,
-    //                 null);
+    // // Swerve 3
+    // builder.addDoubleProperty("Back Left Angle",
+    // () -> Swerve.get().getModule(2).getCurrentState().angle.getDegrees(),
+    // null);
+    // builder.addDoubleProperty("Back Left Velocity",
+    // () -> Swerve.get().getModule(2).getCurrentState().speedMetersPerSecond,
+    // null);
 
-    //         // Swerve 4
-    //         builder.addDoubleProperty("Back Right Angle",
-    //                 () -> Swerve.get().getModule(3).getCurrentState().angle.getDegrees(),
-    //                 null);
-    //         builder.addDoubleProperty("Back Right Velocity",
-    //                 () -> Swerve.get().getModule(3).getCurrentState().speedMetersPerSecond,
-    //                 null);
+    // // Swerve 4
+    // builder.addDoubleProperty("Back Right Angle",
+    // () -> Swerve.get().getModule(3).getCurrentState().angle.getDegrees(),
+    // null);
+    // builder.addDoubleProperty("Back Right Velocity",
+    // () -> Swerve.get().getModule(3).getCurrentState().speedMetersPerSecond,
+    // null);
 
-    //         // Rotation
-    //         builder.addDoubleProperty("Robot Angle", () ->
+    // // Rotation
+    // builder.addDoubleProperty("Robot Angle", () ->
     // Swerve.get().getRotation3d().toRotation2d().getDegrees(),
-    //                 null);
+    // null);
 
-    //     }
+    // }
     // });
 
     NamedCommands.registerCommand("LiftT4", liftandArmTier4);
@@ -490,30 +492,116 @@ public class RobotContainer {
                 drive)
             .ignoringDisable(true));
 
-    // Lift and Arm Setpoints
-    compStreamDeck2.whileTrue(liftandArmIntake);
-    compStreamDeck1.whileTrue(liftandArmTier3);
-    compStreamDeck6.whileTrue(liftandArmTier2);
-    compStreamDeck7.whileTrue(liftandArmTier4);
-    compStreamDeck11.whileTrue(liftandArmTier1);
+    logitechBtnB.and(
+        compStreamDeck7.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(12))));
+    logitechBtnX.and(
+        compStreamDeck7.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(1))));
+    logitechBtnB.and(
+        compStreamDeck12.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(2))));
+    logitechBtnX.and(
+        compStreamDeck12.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(3))));
+    logitechBtnB.and(
+        compStreamDeck11.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(4))));
+    logitechBtnX.and(
+        compStreamDeck11.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(5))));
+    logitechBtnB.and(
+        compStreamDeck6.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(6))));
+    logitechBtnX.and(
+        compStreamDeck6.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(7))));
+    logitechBtnB.and(
+        compStreamDeck1.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(8))));
+    logitechBtnX.and(
+        compStreamDeck1.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(9))));
+    logitechBtnB.and(
+        compStreamDeck2.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(10))));
+    logitechBtnX.and(
+        compStreamDeck2.whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> getLogiLeftYAxis(),
+                () -> getLogiLeftXAxis(),
+                () -> getAngleFromReef(11))));
 
-    // Coral Intake
-    compStreamDeck5.whileTrue(spinCoralIntakeForward);
-    compStreamDeck10.whileTrue(spinCoralIntakeBackward);
+    // // Lift and Arm Setpoints
+    // compStreamDeck2.whileTrue(liftandArmIntake);
+    // compStreamDeck1.whileTrue(liftandArmTier3);
+    // compStreamDeck6.whileTrue(liftandArmTier2);
+    // compStreamDeck7.whileTrue(liftandArmTier4);
+    // compStreamDeck11.whileTrue(liftandArmTier1);
 
-    // Manual Modes
-    compStreamDeck13.onTrue(setArmManualMode);
-    compStreamDeck14.onTrue(setLiftManualMode);
+    // // Coral Intake
+    // compStreamDeck5.whileTrue(spinCoralIntakeForward);
+    // compStreamDeck10.whileTrue(spinCoralIntakeBackward);
 
-    compStreamDeck3.whileTrue(tiltArmManuallyUp);
-    compStreamDeck8.whileTrue(tiltArmManuallyDown);
-    compStreamDeck4.whileTrue(moveLiftUp);
-    compStreamDeck9.whileTrue(moveLiftDown);
+    // // Manual Modes
+    // compStreamDeck13.onTrue(setArmManualMode);
+    // compStreamDeck14.onTrue(setLiftManualMode);
 
-    compStreamDeck15.whileTrue(lockRachet);
-    compStreamDeck16.whileTrue(unlockRachet);
-    compStreamDeck17.whileTrue(moveHangUp);
-    compStreamDeck18.whileTrue(moveHangDown);
+    // compStreamDeck3.whileTrue(tiltArmManuallyUp);
+    // compStreamDeck8.whileTrue(tiltArmManuallyDown);
+    // compStreamDeck4.whileTrue(moveLiftUp);
+    // compStreamDeck9.whileTrue(moveLiftDown);
+
+    // compStreamDeck15.whileTrue(lockRachet);
+    // compStreamDeck16.whileTrue(unlockRachet);
+    // compStreamDeck17.whileTrue(moveHangUp);
+    // compStreamDeck18.whileTrue(moveHangDown);
+
   }
 
   /**
@@ -557,5 +645,44 @@ public class RobotContainer {
     } else {
       return 0;
     }
+  }
+
+  public Rotation2d getAngleFromReef(int stakeNumber) {
+    if (DriverStation.getAlliance().isPresent()) {
+      return getAngleFromReef(DriverStation.getAlliance().get(), drive.getPose(), stakeNumber);
+    }
+    return drive.getRotation();
+  }
+
+  public static Rotation2d getAngleFromReef(
+      DriverStation.Alliance allianceColor, Pose2d pose, int stakeNumber) {
+    double theta = 0;
+    double angle = 0;
+    double lambda = pose.getRotation().getDegrees();
+    double xPos = pose.getX();
+    double yPos = pose.getY();
+    double BstakeXpose = KBlueStakes[stakeNumber - 1].getX();
+    double BstakeYpose = KBlueStakes[stakeNumber - 1].getY();
+    double RstakeXpose = KBlueStakes[stakeNumber - 1].getX();
+    double RstakeYpose = KBlueStakes[stakeNumber - 1].getY();
+    stakeNumber = stakeNumber - 1;
+    if (lambda > 180) {
+      lambda -= 360;
+    }
+
+    if (allianceColor == DriverStation.Alliance.Blue) {
+      if (Math.abs(xPos - BstakeXpose) < 0.01) {
+        return pose.getRotation();
+      }
+      theta = (Math.atan((yPos - BstakeYpose) / (xPos - BstakeXpose)) * (180 / Math.PI));
+      angle = theta - lambda;
+    } else {
+      if (Math.abs(xPos - RstakeXpose) < 0.01) {
+        return pose.getRotation();
+      }
+      theta = (Math.atan((yPos - RstakeYpose) / (xPos - RstakeXpose)) * (180 / Math.PI));
+      angle = theta - lambda;
+    }
+    return new Rotation2d(angle);
   }
 }
