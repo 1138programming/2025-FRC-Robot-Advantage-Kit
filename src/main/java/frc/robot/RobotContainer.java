@@ -306,6 +306,8 @@ public class RobotContainer {
     baseSlowMode = DriveCommands.changesSpeedFactor(drive, KBaseSlowMode);
     baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
 
+    SmartDashboard.setDefaultBoolean("ReleaseCoral?", false);
+
     // SmartDashboard.putData("Swerve Drive", new Sendable() {
     // @Override
     // public void initSendable(SendableBuilder builder) {
@@ -647,6 +649,20 @@ public class RobotContainer {
     }
   }
 
+  public void reefReleasePoint(int stakeNumber, DriverStation.Alliance allianceColor) {
+    if (allianceColor == DriverStation.Alliance.Blue) {
+      double BDifX = Math.pow(KBlueStakes[stakeNumber - 1].getX() - drive.getPose().getX(), 2);
+      double BDifY = Math.pow(KBlueStakes[stakeNumber - 1].getY() - drive.getPose().getY(), 2);
+      double BDif = Math.sqrt(BDifX + BDifY);
+      if (BDif < 0.7 && BDif > 0.6) {
+        SmartDashboard.putBoolean("ReleaseCoral?", true);
+      }
+      else {
+        SmartDashboard.putBoolean("ReleaseCoral?", false);
+      }
+    }
+  }
+
   public Rotation2d getAngleFromReef(int stakeNumber) {
     if (DriverStation.getAlliance().isPresent()) {
       return getAngleFromReef(DriverStation.getAlliance().get(), drive.getPose(), stakeNumber);
@@ -663,8 +679,8 @@ public class RobotContainer {
     double yPos = pose.getY();
     double BstakeXpose = KBlueStakes[stakeNumber - 1].getX();
     double BstakeYpose = KBlueStakes[stakeNumber - 1].getY();
-    double RstakeXpose = KBlueStakes[stakeNumber - 1].getX();
-    double RstakeYpose = KBlueStakes[stakeNumber - 1].getY();
+    double RstakeXpose = KRedStakes[stakeNumber - 1].getX();
+    double RstakeYpose = KRedStakes[stakeNumber - 1].getY();
     stakeNumber = stakeNumber - 1;
     if (lambda > 180) {
       lambda -= 360;
