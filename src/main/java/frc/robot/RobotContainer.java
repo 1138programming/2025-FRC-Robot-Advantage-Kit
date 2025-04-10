@@ -25,8 +25,7 @@ import static frc.robot.subsystems.vision.VisionConstants.*;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.commands.PathPlannerAuto;
-
+import com.pathplanner.lib.util.FileVersionException;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -39,6 +38,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
+import frc.robot.CommandGroups.AutoDrive.AutoScore;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmIntake;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmTier1;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmTier2;
@@ -72,6 +72,8 @@ import frc.robot.subsystems.vision.VisionIO;
 import frc.robot.subsystems.vision.VisionIOLimelight;
 import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
 import frc.robot.util.SubsystemUtil;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -204,7 +206,18 @@ public class RobotContainer {
       autonTestStreamDeck15;
 
   private double baseSpeed = KBaseNormalMode;
-  public final PathPlannerAuto Right12L4 = PathPlannerAuto.getPathGroupFromAutoFile(null);
+  public final AutoScore Right12L4,
+      Right10L4,
+      Right8L4,
+      Right6L4,
+      Right4L4,
+      Right2L4,
+      Left12L4,
+      Left10L4,
+      Left8L4,
+      Left6L4,
+      Left4L4,
+      Left2L4;
 
   // Controller
   private final CommandXboxController controller = new CommandXboxController(1);
@@ -212,7 +225,9 @@ public class RobotContainer {
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /**
+   * The container for the robot. Contains subsystems, OI devices, and commands.
+   */
   public RobotContainer() {
 
     // Subsystems
@@ -255,6 +270,19 @@ public class RobotContainer {
     liftandArmTier2 = new LiftandArmTier2(arm, lift);
     liftandArmTier1 = new LiftandArmTier1(arm, lift);
     liftandArmIntake = new LiftandArmIntake(arm, lift);
+
+    Right12L4 = new AutoScore("Right12L4", lift, arm);
+    Right10L4 = new AutoScore("Right10L4", lift, arm);
+    Right8L4 = new AutoScore("Right8L4", lift, arm);
+    Right6L4 = new AutoScore("Right6L4", lift, arm);
+    Right4L4 = new AutoScore("Right4L4", lift, arm);
+    Right2L4 = new AutoScore("Right2L4", lift, arm);
+    Left12L4 = new AutoScore("Left12L4", lift, arm);
+    Left10L4 = new AutoScore("Left10L4", lift, arm);
+    Left8L4 = new AutoScore("Left8L4", lift, arm);
+    Left6L4 = new AutoScore("Left6L4", lift, arm);
+    Left4L4 = new AutoScore("Left4L4", lift, arm);
+    Left2L4 = new AutoScore("Left2L4", lift, arm);
 
     switch (Constants.currentMode) {
       case REAL:
@@ -723,7 +751,7 @@ public class RobotContainer {
     SmartDashboard.putNumber("angletoRot", angle);
     SmartDashboard.putNumber("angletoRot2", pose.getRotation().getDegrees() - angle);
     // if ((angle) < 2 && angle > -2) {
-    //   return pose.getRotation();
+    // return pose.getRotation();
     // }
     SmartDashboard.putString(
         "finalrotationReturn",

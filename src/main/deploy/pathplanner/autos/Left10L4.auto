@@ -57,7 +57,7 @@
       ]
     }
   },
-  "resetOdom": true,
+  "resetOdom": false,
   "folder": "Auto Drive",
   "choreoAuto": false
 }

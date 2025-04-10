@@ -5,12 +5,6 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Left4L4"
-          }
-        },
-                {
           "type": "deadline",
           "data": {
             "commands": [
@@ -57,7 +51,7 @@
       ]
     }
   },
-  "resetOdom": true,
+  "resetOdom": false,
   "folder": "Auto Drive",
   "choreoAuto": false
 }
