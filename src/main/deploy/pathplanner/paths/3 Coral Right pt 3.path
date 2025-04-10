@@ -3,41 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.2604440789473683,
-        "y": 0.9268092105263156
+        "x": 1.392371403661726,
+        "y": 0.9571926765475155
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2604440789473683,
-        "y": 0.9268092105263159
+        "x": 2.665667858863016,
+        "y": 1.5162700490185075
       },
       "isLocked": false,
       "linkedName": "3 Coral Right Station"
     },
     {
       "anchor": {
-        "x": 3.492680921052631,
-        "y": 1.9755756578947363
+        "x": 3.511924342105263,
+        "y": 1.9467105263157896
       },
       "prevControl": {
-        "x": 3.3675986842105257,
-        "y": 1.735032894736843
+        "x": 3.3886568192881175,
+        "y": 1.729213129047398
       },
       "nextControl": {
-        "x": 3.608019105213129,
-        "y": 2.1973798582033846
+        "x": 3.9150892380674325,
+        "y": 2.658068340099626
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.8294407894736837,
-        "y": 2.620230263157895
+        "x": 3.99,
+        "y": 2.64
       },
       "prevControl": {
-        "x": 3.702685757832836,
-        "y": 2.4047467093684523
+        "x": 3.8279887492170537,
+        "y": 2.353499124908608
       },
       "nextControl": null,
       "isLocked": false,
@@ -47,13 +47,13 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 1,
-      "rotationDegrees": -116.56505117707799
+      "rotationDegrees": -120.41108126712537
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 1.0492957746478873,
+      "minWaypointRelativePos": 0.9,
       "maxWaypointRelativePos": 2.0,
       "constraints": {
         "maxVelocity": 2.0,
@@ -66,7 +66,19 @@
     }
   ],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "LiftT4",
+      "waypointRelativePos": 1.1,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "LiftT4"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 4.65,
     "maxAcceleration": 3.0,
@@ -77,13 +89,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -117.55281157671777
+    "rotation": -115.24000000000001
   },
   "reversed": false,
   "folder": "3 Coral Right",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -130.81508387488157
+    "rotation": -130.38935068133938
   },
   "useDefaultConstraints": true
 }

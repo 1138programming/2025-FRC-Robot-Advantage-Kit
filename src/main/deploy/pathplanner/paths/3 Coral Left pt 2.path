@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.061019736842105,
-        "y": 5.449013157894736
+        "x": 5.09,
+        "y": 5.38
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.283017404499195,
-        "y": 5.850067350394033
+        "x": 4.31199766765709,
+        "y": 5.781054192499297
       },
       "isLocked": false,
       "linkedName": "3 Coral Left pt 1 End"
@@ -62,7 +62,7 @@
   "folder": "3 Coral Left (Old)",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 62.0
+    "rotation": 53.0
   },
   "useDefaultConstraints": true
 }

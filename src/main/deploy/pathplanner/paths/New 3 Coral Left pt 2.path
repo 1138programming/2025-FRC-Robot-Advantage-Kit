@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.061019736842105,
-        "y": 5.449013157894736
+        "x": 5.09,
+        "y": 5.38
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.4453740529295995,
-        "y": 5.9210735016117075
+        "x": 3.474354316087495,
+        "y": 5.852060343716971
       },
       "isLocked": false,
       "linkedName": "3 Coral Left pt 1 End"
@@ -70,17 +70,11 @@
     {
       "name": "Stow",
       "waypointRelativePos": 0,
-      "endWaypointRelativePos": 0.3213644524236987,
+      "endWaypointRelativePos": 1.0794701986754986,
       "command": {
         "type": "parallel",
         "data": {
           "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "ArmStow"
-              }
-            },
             {
               "type": "named",
               "data": {
@@ -93,7 +87,7 @@
     },
     {
       "name": "ArmIntakePos",
-      "waypointRelativePos": 0.5960502692998213,
+      "waypointRelativePos": 1.08,
       "endWaypointRelativePos": 2.0,
       "command": {
         "type": "parallel",
@@ -132,7 +126,7 @@
   "folder": "3 Coral Left (New)",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 62.0
+    "rotation": 53.0
   },
   "useDefaultConstraints": true
 }

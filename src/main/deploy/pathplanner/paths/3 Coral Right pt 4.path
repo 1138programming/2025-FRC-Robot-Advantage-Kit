@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.8294407894736837,
-        "y": 2.620230263157895
+        "x": 3.99,
+        "y": 2.64
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.166976631696832,
-        "y": 2.249362959778653
+        "x": 3.7029112801139625,
+        "y": 2.4570322321598734
       },
       "isLocked": false,
       "linkedName": "3 Coral Right pt 3 End"
@@ -20,24 +20,24 @@
         "y": 1.6195723684210532
       },
       "prevControl": {
-        "x": 2.0531657826238305,
-        "y": 1.785998409883905
+        "x": 2.057367937623483,
+        "y": 1.7811647940561792
       },
       "nextControl": {
-        "x": 1.6800579015866959,
-        "y": 1.4531463269582015
+        "x": 1.675855746587043,
+        "y": 1.4579799427859275
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.2604440789473683,
-        "y": 0.9268092105263156
+        "x": 1.392371403661726,
+        "y": 0.9571926765475155
       },
       "prevControl": {
-        "x": 1.7850347287038089,
-        "y": 1.495740877116209
+        "x": 1.929323140019447,
+        "y": 1.5025237192634173
       },
       "nextControl": null,
       "isLocked": false,
@@ -50,9 +50,41 @@
       "rotationDegrees": -130.82
     }
   ],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 1.0,
+      "maxWaypointRelativePos": 2.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 1.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "LiftStow",
+      "waypointRelativePos": 0.16549295774647882,
+      "endWaypointRelativePos": 1.8,
+      "command": null
+    },
+    {
+      "name": "ArmIntakePos",
+      "waypointRelativePos": 1.8,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "ArmIntakePos"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 4.65,
     "maxAcceleration": 3.0,
@@ -63,13 +95,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -130.81508387488157
+    "rotation": -130.38935068133938
   },
   "reversed": false,
   "folder": "3 Coral Right",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -117.55281157671777
+    "rotation": -115.24000000000001
   },
   "useDefaultConstraints": true
 }

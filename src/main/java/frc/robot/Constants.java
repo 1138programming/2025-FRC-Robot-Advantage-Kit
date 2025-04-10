@@ -88,7 +88,7 @@ public final class Constants {
 
   public static class FieldConstants {
     // 1 is the 12 oclock right stake from driver pov
-    public static final Pose2d KBlueStake1 = new Pose2d(5.34, 3.86, new Rotation2d());
+    public static final Pose2d KBlueStake1 = new Pose2d(5.45, 3.88, new Rotation2d());
     public static final Pose2d KBlueStake2 = new Pose2d(5.06, 3.35, new Rotation2d());
     public static final Pose2d KBlueStake3 = new Pose2d(4.77, 3.19, new Rotation2d());
     public static final Pose2d KBlueStake4 = new Pose2d(4.20, 3.17, new Rotation2d());
@@ -99,7 +99,7 @@ public final class Constants {
     public static final Pose2d KBlueStake9 = new Pose2d(4.17, 4.897, new Rotation2d());
     public static final Pose2d KBlueStake10 = new Pose2d(4.79, 4.89, new Rotation2d());
     public static final Pose2d KBlueStake11 = new Pose2d(5.09, 4.73, new Rotation2d());
-    public static final Pose2d KBlueStake12 = new Pose2d(5.41, 4.19, new Rotation2d());
+    public static final Pose2d KBlueStake12 = new Pose2d(5.45, 4.20, new Rotation2d());
     public static final Pose2d[] KBlueStakes =
         new Pose2d[] {
           KBlueStake1,
@@ -232,14 +232,14 @@ public final class Constants {
     public static final int KArmDeadZone = 1; // in degrees
 
     public static class ArmPositionConstants {
-      public static final int KArmPositionStow = 230; // assuming store means not used
+      public static final int KArmPositionStow = 200; // 230 // assuming store means not used
 
-      public static final int KArmPositionReefL4 = 210;
-      public static final int KArmPositionReefL3 = 240;
-      public static final int KArmPositionReefL2 = 240;
+      public static final int KArmPositionReefL4 = 170; // 205
+      public static final int KArmPositionReefL3 = 205; // 240
+      public static final int KArmPositionReefL2 = 205; // 240
       public static final int KArmPositionReefL1 = 200; // could be between range 0-10
 
-      public static final int KArmPositionIntakeCoralStation = 25; // sloped tunnel is 55°
+      public static final double KArmPositionIntakeCoralStation = 30; // sloped tunnel is 55°
       public static final int KArmPositionIntakeGround = 0; // Unknown
     }
   }
@@ -270,9 +270,9 @@ public final class Constants {
       public static final int KLiftControlD = 0;
 
       public static final int KLiftMaxVoltage = 12; // in rps
-      public static final double KLiftPositionReefL4 = 5.83 + 0.4;
-      public static final double KLiftPositionReefL3 = 3.8 + 0.3;
-      public static final double KLiftPositionReefL2 = 1.5 + 0.3;
+      public static final double KLiftPositionReefL4 = 5.05; // 5.83 + 0.4
+      public static final double KLiftPositionReefL3 = 2.6;
+      public static final double KLiftPositionReefL2 = 0.2;
       public static final double KLiftPositionReefL1 = 1; // could be between range 0-10
 
       // public static final int KLiftPositionIntakeGround = 340;

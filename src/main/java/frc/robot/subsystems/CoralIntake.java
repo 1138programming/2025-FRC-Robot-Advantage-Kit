@@ -6,17 +6,27 @@ package frc.robot.subsystems;
 
 import static frc.robot.Constants.DeviceConstants.*;
 
+import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class CoralIntake extends SubsystemBase {
   public DigitalInput CoralIntakeLimitSwitch;
   private SparkFlex CoralIntakeMotor;
+  private SparkBaseConfig sparkFlexConfig;
 
   public CoralIntake() {
     CoralIntakeMotor = new SparkFlex(KCoralIntakeMotorId, MotorType.kBrushless);
+    sparkFlexConfig = new SparkFlexConfig();
+    sparkFlexConfig.smartCurrentLimit(65);
+    CoralIntakeMotor.configure(
+        sparkFlexConfig,
+        com.revrobotics.spark.SparkBase.ResetMode.kNoResetSafeParameters,
+        PersistMode.kPersistParameters);
     CoralIntakeLimitSwitch = new DigitalInput(KCoralIntakeMotorLimitSwitch);
   }
 

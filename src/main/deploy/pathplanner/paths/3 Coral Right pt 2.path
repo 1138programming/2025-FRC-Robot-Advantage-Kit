@@ -3,41 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.061019736842105,
-        "y": 2.5528782894736843
+        "x": 5.08,
+        "y": 2.63
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.4475680356485094,
-        "y": 1.9530236492770525
+        "x": 3.691597163573931,
+        "y": 1.7441938580425949
       },
       "isLocked": false,
       "linkedName": "3 Coral Right pt 1 End"
     },
     {
       "anchor": {
-        "x": 1.8858552631578944,
-        "y": 1.6580592105263157
+        "x": 2.280345394736842,
+        "y": 1.4367598684210532
       },
       "prevControl": {
-        "x": 2.1838659553438697,
-        "y": 1.9788361902020473
+        "x": 2.815643658560045,
+        "y": 1.74146717095663
       },
       "nextControl": {
-        "x": 0.8573023690359645,
-        "y": 0.5509308441143257
+        "x": 1.5453792502179597,
+        "y": 1.0183958151700097
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.2604440789473683,
-        "y": 0.9268092105263156
+        "x": 1.39,
+        "y": 0.96
       },
       "prevControl": {
-        "x": 1.4583969913952484,
-        "y": 1.0795005477180566
+        "x": 1.849624478656924,
+        "y": 1.1983792029353337
       },
       "nextControl": null,
       "isLocked": false,
@@ -56,8 +56,8 @@
       "minWaypointRelativePos": 1.3626760563380305,
       "maxWaypointRelativePos": 2.0,
       "constraints": {
-        "maxVelocity": 4.65,
-        "maxAcceleration": 1.5,
+        "maxVelocity": 2.0,
+        "maxAcceleration": 1.1,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -94,11 +94,24 @@
     {
       "name": "ArmIntakePos",
       "waypointRelativePos": 1.0017953321364437,
-      "endWaypointRelativePos": null,
+      "endWaypointRelativePos": 2.0,
       "command": {
-        "type": "named",
+        "type": "parallel",
         "data": {
-          "name": "ArmIntakePos"
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "CoralInSlow"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "ArmIntakePos"
+              }
+            }
+          ]
         }
       }
     }
@@ -113,13 +126,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -130.81508387488157
+    "rotation": -130.38935068133938
   },
   "reversed": false,
   "folder": "3 Coral Right",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -62.48799737614858
+    "rotation": -67.0
   },
   "useDefaultConstraints": true
 }

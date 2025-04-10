@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 5.061019736842105,
-        "y": 5.449013157894736
+        "x": 5.09,
+        "y": 5.38
       },
       "prevControl": {
-        "x": 5.119362974960936,
-        "y": 5.692109983389866
+        "x": 5.148343238118831,
+        "y": 5.6230968254951295
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0.0,
-    "rotation": 62.0
+    "rotation": 53.0
   },
   "reversed": false,
   "folder": "3 Coral Left (Old)",

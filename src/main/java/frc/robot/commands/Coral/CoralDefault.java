@@ -28,7 +28,7 @@ public class CoralDefault extends Command {
   @Override
   public void execute() {
     if (util.getArmSpeed() > 10 || util.getArmSpeed() < -10) {
-      coralIntake.setCoralIntakeSpeed(0.7);
+      coralIntake.setCoralIntakeSpeed(0.75);
     } else {
       coralIntake.setCoralIntakeSpeed(0);
     }

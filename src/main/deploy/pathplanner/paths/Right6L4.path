@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.601151315789473,
-        "y": 4.169325657894737
+        "x": 2.597861842105263,
+        "y": 3.8614309210526314
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.8454899722291245,
-        "y": 4.11642366389389
+        "x": 3.0886831596183413,
+        "y": 3.8605488453394323
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.003947368421052,
-        "y": 4.169325657894737
+        "x": 3.050082236842105,
+        "y": 3.8614309210526314
       },
       "prevControl": {
-        "x": 5.754411444728211,
-        "y": 4.184551385685567
+        "x": 2.5618541670722697,
+        "y": 3.866054787220787
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,7 +31,19 @@
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "LiftT4",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "LiftT4"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 2.0,
     "maxAcceleration": 1.5,
@@ -42,13 +54,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "reversed": false,
-  "folder": "1 Coral Mid",
+  "folder": "New Folder",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "useDefaultConstraints": false
 }
