@@ -25,7 +25,6 @@ import static frc.robot.subsystems.vision.VisionConstants.*;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.util.FileVersionException;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -70,10 +69,7 @@ import frc.robot.subsystems.drive.ModuleIOTalonFX;
 import frc.robot.subsystems.vision.Vision;
 import frc.robot.subsystems.vision.VisionIO;
 import frc.robot.subsystems.vision.VisionIOLimelight;
-import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
 import frc.robot.util.SubsystemUtil;
-import java.io.IOException;
-import org.json.simple.parser.ParseException;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -216,7 +212,7 @@ public class RobotContainer {
       Left10L4,
       Left8L4,
       Left6L4,
-      Left4L4,
+      // Left4L4,
       Left2L4;
 
   // Controller
@@ -225,9 +221,7 @@ public class RobotContainer {
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
 
-  /**
-   * The container for the robot. Contains subsystems, OI devices, and commands.
-   */
+  /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
 
     // Subsystems
@@ -271,19 +265,6 @@ public class RobotContainer {
     liftandArmTier1 = new LiftandArmTier1(arm, lift);
     liftandArmIntake = new LiftandArmIntake(arm, lift);
 
-    Right12L4 = new AutoScore("Right12L4", lift, arm);
-    Right10L4 = new AutoScore("Right10L4", lift, arm);
-    Right8L4 = new AutoScore("Right8L4", lift, arm);
-    Right6L4 = new AutoScore("Right6L4", lift, arm);
-    Right4L4 = new AutoScore("Right4L4", lift, arm);
-    Right2L4 = new AutoScore("Right2L4", lift, arm);
-    Left12L4 = new AutoScore("Left12L4", lift, arm);
-    Left10L4 = new AutoScore("Left10L4", lift, arm);
-    Left8L4 = new AutoScore("Left8L4", lift, arm);
-    Left6L4 = new AutoScore("Left6L4", lift, arm);
-    Left4L4 = new AutoScore("Left4L4", lift, arm);
-    Left2L4 = new AutoScore("Left2L4", lift, arm);
-
     switch (Constants.currentMode) {
       case REAL:
         // Real robot, instantiate hardware IO implementations
@@ -299,7 +280,9 @@ public class RobotContainer {
             new Vision(
                 drive::addVisionMeasurement,
                 // new VisionIOLimelight(camera0Name, drive::getRotation),
-                new VisionIOLimelight(camera1Name, drive::getRotation));
+                new VisionIOLimelight(camera1Name, drive::getRotation),
+                new VisionIOLimelight(camera0Name, drive::getRotation));
+
         break;
 
       case SIM:
@@ -315,8 +298,10 @@ public class RobotContainer {
         vision =
             new Vision(
                 drive::addVisionMeasurement,
-                // new VisionIOPhotonVisionSim(camera0Name, robotToCamera0, drive::getPose),
-                new VisionIOPhotonVisionSim(camera1Name, robotToCamera1, drive::getPose));
+                // new VisionIOLimelight(camera0Name, drive::getRotation),
+                new VisionIOLimelight(camera1Name, drive::getRotation),
+                new VisionIOLimelight(camera0Name, drive::getRotation));
+
         break;
 
       default:
@@ -394,6 +379,19 @@ public class RobotContainer {
 
     // Set up auto routines
     autoChooser = new LoggedDashboardChooser<>("Auto Choices", AutoBuilder.buildAutoChooser());
+
+    Right12L4 = new AutoScore("Right12L4", lift, arm);
+    Right10L4 = new AutoScore("Right10L4", lift, arm);
+    Right8L4 = new AutoScore("Right8L4", lift, arm);
+    Right6L4 = new AutoScore("Right6L4", lift, arm);
+    Right4L4 = new AutoScore("Right4L4", lift, arm);
+    Right2L4 = new AutoScore("Right2L4", lift, arm);
+    Left12L4 = new AutoScore("Left12L4", lift, arm);
+    Left10L4 = new AutoScore("Left10L4", lift, arm);
+    Left8L4 = new AutoScore("Left8L4", lift, arm);
+    Left6L4 = new AutoScore("Left6L4", lift, arm);
+    // Left4L4 = new AutoScore("Left4L4", lift, arm);
+    Left2L4 = new AutoScore("Left2L4", lift, arm);
 
     // Set up SysId routines
     autoChooser.addOption(
@@ -647,8 +645,7 @@ public class RobotContainer {
     // compStreamDeck13.onTrue(setArmManualMode);
     // compStreamDeck14.onTrue(setLiftManualMode);
 
-    // compStreamDeck3.whileTrue(tiltArmManuallyUp);
-    // compStreamDeck8.whileTrue(tiltArmManuallyDown);
+    compStreamDeck19.whileTrue(moveLiftUp);
     // compStreamDeck4.whileTrue(moveLiftUp);
     // compStreamDeck9.whileTrue(moveLiftDown);
 

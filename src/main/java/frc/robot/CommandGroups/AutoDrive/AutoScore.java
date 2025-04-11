@@ -38,12 +38,13 @@ public class AutoScore extends SequentialCommandGroup {
     this.Name = Name;
     this.arm = arm;
     this.lift = lift;
-    
+
     PathPlannerPath path;
     try {
       path = PathPlannerPath.fromPathFile(Name);
     } catch (FileVersionException e) {
       // TODO Auto-generated catch block
+      path = null;
       e.printStackTrace();
     } catch (IOException e) {
       path = null;
@@ -59,6 +60,7 @@ public class AutoScore extends SequentialCommandGroup {
         new PathConstraints(4.65, 3, Units.degreesToRadians(540), Units.degreesToRadians(720));
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
+
     Command pathfindingCommand = AutoBuilder.pathfindThenFollowPath(path, constraints);
     addCommands(
         pathfindingCommand,
