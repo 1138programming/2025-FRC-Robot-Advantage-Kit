@@ -3,41 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.392371403661726,
-        "y": 0.9571926765475155
+        "x": 1.3072345890410957,
+        "y": 0.8921446917808215
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.665667858863016,
-        "y": 1.5162700490185075
+        "x": 2.5805310442423854,
+        "y": 1.4512220642518134
       },
       "isLocked": false,
       "linkedName": "3 Coral Right Station"
     },
     {
       "anchor": {
-        "x": 3.511924342105263,
-        "y": 1.9467105263157896
+        "x": 3.485958904109589,
+        "y": 2.004045376712329
       },
       "prevControl": {
-        "x": 3.3886568192881175,
-        "y": 1.729213129047398
+        "x": 3.3626913812924437,
+        "y": 1.7865479794439374
       },
       "nextControl": {
-        "x": 3.9150892380674325,
-        "y": 2.658068340099626
+        "x": 3.8891238000717587,
+        "y": 2.7154031904961653
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.99,
-        "y": 2.64
+        "x": 3.8766267123287674,
+        "y": 2.635124143835617
       },
       "prevControl": {
-        "x": 3.8279887492170537,
-        "y": 2.353499124908608
+        "x": 3.714615461545821,
+        "y": 2.348623268744225
       },
       "nextControl": null,
       "isLocked": false,
@@ -69,7 +69,7 @@
   "eventMarkers": [
     {
       "name": "LiftT4",
-      "waypointRelativePos": 1.1,
+      "waypointRelativePos": 0.9,
       "endWaypointRelativePos": null,
       "command": {
         "type": "named",
@@ -89,7 +89,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -115.24000000000001
+    "rotation": -119.53878225955809
   },
   "reversed": false,
   "folder": "3 Coral Right",

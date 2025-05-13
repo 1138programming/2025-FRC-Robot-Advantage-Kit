@@ -13,8 +13,6 @@
 
 package frc.robot.commands;
 
-import static frc.robot.Constants.SwerveConstants.KBaseNormalMode;
-
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.filter.SlewRateLimiter;
@@ -48,7 +46,6 @@ public class DriveCommands {
   private static final double FF_RAMP_RATE = 0.1; // Volts/Sec
   private static final double WHEEL_RADIUS_MAX_VELOCITY = 0.25; // Rad/Sec
   private static final double WHEEL_RADIUS_RAMP_RATE = 0.05; // Rad/Sec^2
-  private static double swerveSpeedFactor = KBaseNormalMode;
 
   private DriveCommands() {}
 
@@ -64,15 +61,6 @@ public class DriveCommands {
     return new Pose2d(new Translation2d(), linearDirection)
         .transformBy(new Transform2d(linearMagnitude, 0.0, new Rotation2d()))
         .getTranslation();
-  }
-
-  public static Command changesSpeedFactor(Drive drive, double speed) {
-
-    return Commands.run(
-        () -> {
-          swerveSpeedFactor = speed;
-        },
-        drive);
   }
 
   /**
@@ -98,8 +86,8 @@ public class DriveCommands {
           // Convert to field relative speeds & send command
           ChassisSpeeds speeds =
               new ChassisSpeeds(
-                  linearVelocity.getX() * drive.getMaxLinearSpeedMetersPerSec() * swerveSpeedFactor,
-                  linearVelocity.getY() * drive.getMaxLinearSpeedMetersPerSec() * swerveSpeedFactor,
+                  linearVelocity.getX() * drive.getMaxLinearSpeedMetersPerSec(),
+                  linearVelocity.getY() * drive.getMaxLinearSpeedMetersPerSec(),
                   omega * drive.getMaxAngularSpeedRadPerSec());
           boolean isFlipped =
               DriverStation.getAlliance().isPresent()

@@ -234,12 +234,12 @@ public final class Constants {
     public static class ArmPositionConstants {
       public static final int KArmPositionStow = 200; // 230 // assuming store means not used
 
-      public static final int KArmPositionReefL4 = 170; // 205
+      public static final int KArmPositionReefL4 = 200; // 185
       public static final int KArmPositionReefL3 = 205; // 240
-      public static final int KArmPositionReefL2 = 205; // 240
+      public static final int KArmPositionReefL2 = 210; // 240
       public static final int KArmPositionReefL1 = 200; // could be between range 0-10
 
-      public static final double KArmPositionIntakeCoralStation = 30; // sloped tunnel is 55°
+      public static final double KArmPositionIntakeCoralStation = 15; // 25 // sloped tunnel is 55°
       public static final int KArmPositionIntakeGround = 0; // Unknown
     }
   }
@@ -260,7 +260,9 @@ public final class Constants {
 
     public static class LiftPositionConstants {
       // Takes about 6 rotations to fully extend
-      public static final double KLiftPositionStow = -0.1 + 0.30; // assuming store means not used
+      public static final double KLiftPositionStow = 0.15; // assuming store means not
+      // used
+      // public static final double KLiftPositionStow = 0.35; // assuming store means not used
       // public static final double KLiftPositionStow = 0.3; // assuming store means
       // not used
 
@@ -270,7 +272,7 @@ public final class Constants {
       public static final int KLiftControlD = 0;
 
       public static final int KLiftMaxVoltage = 12; // in rps
-      public static final double KLiftPositionReefL4 = 5.05; // 5.83 + 0.4
+      public static final double KLiftPositionReefL4 = 5.80; // 5.15
       public static final double KLiftPositionReefL3 = 2.6;
       public static final double KLiftPositionReefL2 = 0.2;
       public static final double KLiftPositionReefL1 = 1; // could be between range 0-10

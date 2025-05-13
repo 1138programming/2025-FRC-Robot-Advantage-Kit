@@ -91,9 +91,9 @@ public class RobotContainer {
 
   // Commands
 
-  public final Command baseTurboMode;
-  public final Command baseNormalMode;
-  public final Command baseSlowMode;
+  // public final Command baseTurboMode;
+  // public final Command baseNormalMode;
+  // public final Command baseSlowMode;
 
   public final MoveLift liftStop;
   public final MoveLift moveLiftUp;
@@ -247,7 +247,7 @@ public class RobotContainer {
     stopCoralIntake = new SpinCoralIntake(coralIntake, 0);
     coralDefault = new CoralDefault(coralIntake, subsystemUtil);
 
-    spinCoralIntakeForward = new SpinCoralIntake(coralIntake, 0.75);
+    spinCoralIntakeForward = new SpinCoralIntake(coralIntake, 1);
     spinCoralIntakeForwardSlow = new SpinCoralIntake(coralIntake, 0.5);
     spinCoralIntakeBackward = new SpinCoralIntake(coralIntake, -KCoralIntakeSpeed);
 
@@ -280,7 +280,7 @@ public class RobotContainer {
             new Vision(
                 drive::addVisionMeasurement,
                 // new VisionIOLimelight(camera0Name, drive::getRotation),
-                new VisionIOLimelight(camera1Name, drive::getRotation),
+                // new VisionIOLimelight(camera1Name, drive::getRotation),
                 new VisionIOLimelight(camera0Name, drive::getRotation));
 
         break;
@@ -299,7 +299,7 @@ public class RobotContainer {
             new Vision(
                 drive::addVisionMeasurement,
                 // new VisionIOLimelight(camera0Name, drive::getRotation),
-                new VisionIOLimelight(camera1Name, drive::getRotation),
+                // new VisionIOLimelight(camera1Name, drive::getRotation),
                 new VisionIOLimelight(camera0Name, drive::getRotation));
 
         break;
@@ -318,9 +318,9 @@ public class RobotContainer {
 
         break;
     }
-    baseNormalMode = DriveCommands.changesSpeedFactor(drive, KBaseNormalMode);
-    baseSlowMode = DriveCommands.changesSpeedFactor(drive, KBaseSlowMode);
-    baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
+    // baseNormalMode = DriveCommands.changesSpeedFactor(drive, KBaseNormalMode);
+    // baseSlowMode = DriveCommands.changesSpeedFactor(drive, KBaseSlowMode);
+    // baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
 
     SmartDashboard.setDefaultBoolean("ReleaseCoral?", false);
 
@@ -502,14 +502,17 @@ public class RobotContainer {
 
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
-            drive, () -> getLogiLeftYAxis(), () -> getLogiLeftXAxis(), () -> getLogiRightXAxis()));
+            drive,
+            () -> getLogiLeftYAxis() * 0.75,
+            () -> getLogiLeftXAxis() * 0.75,
+            () -> getLogiRightXAxis() * 0.75));
 
     arm.setDefaultCommand(armStow);
     lift.setDefaultCommand(liftStow);
     // coralIntake.setDefaultCommand(armStow);
     coralIntake.setDefaultCommand(coralDefault); // could be an issue
     hang.setDefaultCommand(moveHangStop);
-    logitechBtnRB.whileTrue(spinCoralIntakeForward);
+    logitechBtnRB.whileTrue(spinCoralIntakeForwardSlow);
     logitechBtnRT.whileTrue(spinCoralIntakeBackward);
     // Lock to 0° when A button is held
     logitechBtnA.whileTrue(
@@ -522,6 +525,9 @@ public class RobotContainer {
             () -> getLogiLeftYAxis() * 0.5,
             () -> getLogiLeftXAxis() * 0.5,
             () -> getLogiRightXAxis() * 0.5));
+    logitechBtnLB.whileTrue(
+        DriveCommands.joystickDrive(
+            drive, () -> getLogiLeftYAxis(), () -> getLogiLeftXAxis(), () -> getLogiRightXAxis()));
 
     // Reset gyro to 0° when Y button is pressed
     logitechBtnY.onTrue(
@@ -530,125 +536,127 @@ public class RobotContainer {
                 drive)
             .ignoringDisable(true));
 
-    logitechBtnB
-        .and(compStreamDeck7)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(12)));
-    logitechBtnX
-        .and(compStreamDeck7)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(1)));
-    logitechBtnB
-        .and(compStreamDeck12)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(2)));
-    logitechBtnX
-        .and(compStreamDeck12)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(3)));
-    logitechBtnB
-        .and(compStreamDeck11)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(4)));
-    logitechBtnX
-        .and(compStreamDeck11)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(5)));
-    logitechBtnB
-        .and(compStreamDeck6)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(6)));
-    logitechBtnX
-        .and(compStreamDeck6)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(7)));
-    logitechBtnB
-        .and(compStreamDeck1)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(8)));
-    logitechBtnX
-        .and(compStreamDeck1)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(9)));
-    logitechBtnB
-        .and(compStreamDeck2)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(10)));
-    logitechBtnX
-        .and(compStreamDeck2)
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> getLogiLeftYAxis(),
-                () -> getLogiLeftXAxis(),
-                () -> getAngleFromReef(11)));
+    // logitechBtnB
+    //     .and(compStreamDeck7)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(12)));
+    // logitechBtnX
+    //     .and(compStreamDeck7)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(1)));
+    // logitechBtnB
+    //     .and(compStreamDeck12)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(2)));
+    // logitechBtnX
+    //     .and(compStreamDeck12)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(3)));
+    // logitechBtnB
+    //     .and(compStreamDeck11)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(4)));
+    // logitechBtnX
+    //     .and(compStreamDeck11)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(5)));
+    // logitechBtnB
+    //     .and(compStreamDeck6)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(6)));
+    // logitechBtnX
+    //     .and(compStreamDeck6)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(7)));
+    // logitechBtnB
+    //     .and(compStreamDeck1)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(8)));
+    // logitechBtnX
+    //     .and(compStreamDeck1)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(9)));
+    // logitechBtnB
+    //     .and(compStreamDeck2)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(10)));
+    // logitechBtnX
+    //     .and(compStreamDeck2)
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive,
+    //             () -> getLogiLeftYAxis(),
+    //             () -> getLogiLeftXAxis(),
+    //             () -> getAngleFromReef(11)));
 
-    // Lift and Arm Setpoints
-    compStreamDeck3.whileTrue(liftandArmIntake);
-    compStreamDeck4.whileTrue(liftandArmTier4);
-    compStreamDeck9.whileTrue(liftandArmTier3);
-    compStreamDeck14.whileTrue(liftandArmTier2);
-    // compStreamDeck11.whileTrue(liftandArmTier1);
+    // Manual Movement0.15
+    compStreamDeck3.whileTrue(tiltArmManuallyUp);
+    compStreamDeck4.whileTrue(moveLiftUp);
+    compStreamDeck8.whileTrue(tiltArmManuallyDown);
+    compStreamDeck9.whileTrue(moveLiftDown);
+
+    // Intaking
+    compStreamDeck2.whileTrue(liftandArmIntake);
+
+    // Scoring
+    compStreamDeck1.whileTrue(liftandArmTier4);
+    compStreamDeck6.whileTrue(liftandArmTier3);
+    compStreamDeck11.whileTrue(liftandArmTier2);
+    compStreamDeck12.whileTrue(liftandArmTier1);
+
+    // Manual Mode
+    compStreamDeck13.onTrue(setArmManualMode);
+    compStreamDeck14.onTrue(setLiftManualMode);
 
     // Coral Intake
-    compStreamDeck5.whileTrue(spinCoralIntakeForward);
+    compStreamDeck5.whileTrue(spinCoralIntakeForwardSlow);
     compStreamDeck10.whileTrue(spinCoralIntakeBackward);
 
-    compStreamDeck8.whileTrue(spinCoralIntakeForward);
-    compStreamDeck13.whileTrue(spinCoralIntakeBackward);
-
-    // // Manual Modes
-    // compStreamDeck13.onTrue(setArmManualMode);
-    // compStreamDeck14.onTrue(setLiftManualMode);
-
-    compStreamDeck19.whileTrue(moveLiftUp);
-    // compStreamDeck4.whileTrue(moveLiftUp);
-    // compStreamDeck9.whileTrue(moveLiftDown);
-
+    // Hang
     compStreamDeck15.whileTrue(lockRachet);
     compStreamDeck16.whileTrue(unlockRachet);
     compStreamDeck17.whileTrue(moveHangUp);
@@ -692,6 +700,7 @@ public class RobotContainer {
     double X = logitech.getX();
     SmartDashboard.putNumber("getLogiLeftXAxis", -X);
     if (X > KDeadZone || X < -KDeadZone) {
+
       return -X;
     } else {
       return 0;
