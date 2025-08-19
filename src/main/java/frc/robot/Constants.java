@@ -220,8 +220,8 @@ public final class Constants {
     // future
 
     public static final double KArmStopVelocity = 0;
-    public static final double KArmMoveVelocity = 0.4;
-    public static final double KArmFlipVelocity = 0.5;
+    public static final double KArmMoveVelocity = 0.1; // 0.4
+    public static final double KArmFlipVelocity = 0.1; // 0.5
 
     public static final int KArmControlP = 0;
     public static final int KArmControlI = 0;

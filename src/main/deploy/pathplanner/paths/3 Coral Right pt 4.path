@@ -71,7 +71,12 @@
       "name": "LiftStow",
       "waypointRelativePos": 0.16549295774647882,
       "endWaypointRelativePos": 1.8,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "Stow"
+        }
+      }
     },
     {
       "name": "ArmIntakePos",
