@@ -4,27 +4,27 @@
 
 package frc.robot.CommandGroups;
 
-import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.commands.DriveCommands;
+import frc.robot.commands.DriveStop;
 import frc.robot.subsystems.drive.Drive;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class DriveForwardTime extends ParallelDeadlineGroup {
+public class Basketball extends SequentialCommandGroup {
+  /** Creates a new Basketball. */
   Drive drive;
-  double speed2;
-  /** Creates a new DriveForwardTime. */
-  public DriveForwardTime(Drive drive, Double seconds, double speed) {
-    // Add the deadline command in the super() call. Add other commands using
-    // addCommands().
-    super(new WaitCommand(seconds));
-    this.drive = drive;
 
-    speed2 = Math.min(speed, 0.2);
-    speed2 = Math.max(speed, -0.2);
+  public Basketball(Drive drive) {
+    // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(DriveCommands.Drive(drive, () -> 0.2, () -> 0, () -> 0));
+    this.drive = drive;
+    addCommands(
+        new DriveForwardTime(drive, 10.0, 0.2),
+        new DriveStop(drive),
+        new WaitCommand(5),
+        new DriveForwardTime(drive, 10.0, 0.2),
+        new DriveStop(drive));
   }
 }

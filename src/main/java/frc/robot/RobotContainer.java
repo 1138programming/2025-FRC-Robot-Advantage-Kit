@@ -38,6 +38,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.CommandGroups.AutoDrive.AutoScore;
+import frc.robot.CommandGroups.Basketball;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmIntake;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmTier1;
 import frc.robot.CommandGroups.LiftSetpoints.LiftandArmTier2;
@@ -127,6 +128,7 @@ public class RobotContainer {
   public final LiftandArmTier2 liftandArmTier2;
   public final LiftandArmTier1 liftandArmTier1;
   public final LiftandArmIntake liftandArmIntake;
+  public final Basketball basketball;
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   // private final SwerveRequest.SwerveDriveBrake brake = new
@@ -318,6 +320,7 @@ public class RobotContainer {
 
         break;
     }
+    basketball = new Basketball(drive);
     // baseNormalMode = DriveCommands.changesSpeedFactor(drive, KBaseNormalMode);
     // baseSlowMode = DriveCommands.changesSpeedFactor(drive, KBaseSlowMode);
     // baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
@@ -516,6 +519,7 @@ public class RobotContainer {
     hang.setDefaultCommand(moveHangStop);
     logitechBtnRB.whileTrue(spinCoralIntakeForwardSlow);
     logitechBtnRT.whileTrue(spinCoralIntakeBackward);
+    logitechBtnB.onTrue(basketball);
     // Lock to 0° when A button is held
     logitechBtnA.whileTrue(
         DriveCommands.joystickDriveAtAngle(
@@ -527,9 +531,10 @@ public class RobotContainer {
             () -> getLogiLeftYAxis() * 0.5,
             () -> getLogiLeftXAxis() * 0.5,
             () -> getLogiRightXAxis() * 0.5));
-    logitechBtnLB.whileTrue(
-        DriveCommands.joystickDrive(
-            drive, () -> getLogiLeftYAxis(), () -> getLogiLeftXAxis(), () -> getLogiRightXAxis()));
+    // logitechBtnLB.whileTrue(
+    //     DriveCommands.joystickDrive(
+    //         drive, () -> getLogiLeftYAxis(), () -> getLogiLeftXAxis(), () ->
+    // getLogiRightXAxis()));
 
     // Reset gyro to 0° when Y button is pressed
     logitechBtnY.onTrue(
