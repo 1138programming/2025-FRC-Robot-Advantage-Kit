@@ -220,8 +220,8 @@ public final class Constants {
     // future
 
     public static final double KArmStopVelocity = 0;
-    public static final double KArmMoveVelocity = 0.1; // 0.4
-    public static final double KArmFlipVelocity = 0.1; // 0.5
+    public static final double KArmMoveVelocity = 0.4; // 0.4
+    public static final double KArmFlipVelocity = 0.5; // 0.5
 
     public static final int KArmControlP = 0;
     public static final int KArmControlI = 0;
@@ -274,7 +274,7 @@ public final class Constants {
       public static final int KLiftMaxVoltage = 12; // in rps
       public static final double KLiftPositionReefL4 = 5.80; // 5.15
       public static final double KLiftPositionReefL3 = 2.6;
-      public static final double KLiftPositionReefL2 = 0.2;
+      public static final double KLiftPositionReefL2 = 1.2;
       public static final double KLiftPositionReefL1 = 1; // could be between range 0-10
 
       // public static final int KLiftPositionIntakeGround = 340;
