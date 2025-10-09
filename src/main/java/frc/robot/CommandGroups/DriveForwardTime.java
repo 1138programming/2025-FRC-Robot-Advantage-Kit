@@ -25,6 +25,6 @@ public class DriveForwardTime extends ParallelDeadlineGroup {
     speed2 = Math.min(speed, 0.2);
     speed2 = Math.max(speed, -0.2);
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(DriveCommands.Drive(drive, () -> 0.2, () -> 0, () -> 0));
+    addCommands(DriveCommands.Drive(drive, () -> speed2, () -> 0, () -> 0));
   }
 }

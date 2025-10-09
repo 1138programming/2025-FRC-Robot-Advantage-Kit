@@ -162,7 +162,14 @@ public class Drive extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("pose", getPose().getTranslation().getX());
+    SmartDashboard.putNumberArray(
+        "drive pose",
+        new double[] {
+          getPose().getTranslation().getX(),
+          getPose().getTranslation().getY(),
+          getPose().getRotation().getDegrees()
+        });
+
     odometryLock.lock(); // Prevents odometry updates while reading data
     gyroIO.updateInputs(gyroInputs);
     Logger.processInputs("Drive/Gyro", gyroInputs);

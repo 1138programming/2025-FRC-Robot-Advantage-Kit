@@ -320,7 +320,7 @@ public class RobotContainer {
 
         break;
     }
-    basketball = new Basketball(drive);
+    basketball = new Basketball(drive, arm, lift);
     // baseNormalMode = DriveCommands.changesSpeedFactor(drive, KBaseNormalMode);
     // baseSlowMode = DriveCommands.changesSpeedFactor(drive, KBaseSlowMode);
     // baseTurboMode = DriveCommands.changesSpeedFactor(drive, KBaseTurboMode);
@@ -413,6 +413,7 @@ public class RobotContainer {
         "Drive SysId (Dynamic Forward)", drive.sysIdDynamic(SysIdRoutine.Direction.kForward));
     autoChooser.addOption(
         "Drive SysId (Dynamic Reverse)", drive.sysIdDynamic(SysIdRoutine.Direction.kReverse));
+    autoChooser.addOption("BasketBall", basketball);
 
     // DS Ports
     logitech = new Joystick(KLogitechPort); // Logitech Dual Action
