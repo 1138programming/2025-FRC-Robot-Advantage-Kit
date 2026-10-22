@@ -64,6 +64,7 @@ public class Hang extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putNumber("servo", lock.get());
+    SmartDashboard.putNumber("hang vel", tiltMotor.getVelocity().getValueAsDouble());
     // This method will be called once per scheduler run
   }
 }

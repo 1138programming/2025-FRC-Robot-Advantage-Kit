@@ -122,7 +122,6 @@ public class Lift extends SubsystemBase {
             .withStaticFeedforwardSign(StaticFeedforwardSignValue.UseVelocitySign);
 
     liftMotor.getConfigurator().apply(slot0Configs);
-
     m_goal = new TrapezoidProfile.State(0, 0);
 
     m_setpoint = new TrapezoidProfile.State();
